@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مراجعة اختبار الفترة الثانية | المهارات الرقمية | ثالث متوسط</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #00843D;
+  --green-dark: #005C2B;
+  --green-light: #E6F4EC;
+  --gold: #C9A84C;
+  --gold-light: #FBF0D0;
+  --blue: #1565C0;
+  --blue-light: #E3EEF9;
+  --orange: #D84315;
+  --orange-light: #FBE9E7;
+  --purple: #6A1B9A;
+  --purple-light: #F3E5F5;
+  --teal: #00695C;
+  --teal-light: #E0F2F1;
+  --bg: #F4F7F5;
+  --text: #1A2E25;
+  --text-muted: #5A7165;
+  --white: #FFFFFF;
+  --radius: 18px;
+  --shadow: 0 6px 32px rgba(0,132,61,0.10);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Tajawal', sans-serif; background: var(--bg); color: var(--text); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(140deg, var(--green-dark) 0%, var(--green) 55%, #00A84F 100%);
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden; color: white;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 20% 80%, rgba(201,168,76,.18) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(255,255,255,.07) 0%, transparent 50%);
+}
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 48px; border-bottom: 1px solid rgba(255,255,255,.13);
+  position: relative; z-index: 5;
+}
+.logo-area { display: flex; align-items: center; gap: 14px; }
+.logo-box {
+  width: 64px; height: 64px; background: white; border-radius: 13px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,.25); overflow: hidden; padding: 4px;
+}
+.logo-box img { width: 100%; height: 100%; object-fit: contain; }
+.logo-name { font-size: 20px; font-weight: 800; }
+.logo-sub  { font-size: 12px; opacity: .75; margin-top: 2px; }
+.nav-tag {
+  background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.22);
+  border-radius: 50px; padding: 8px 20px; font-size: 13px; font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+.hero-body {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 50px 24px;
+  position: relative; z-index: 4;
+}
+.hero-chip {
+  display: inline-block;
+  background: rgba(201,168,76,.28); border: 1px solid rgba(201,168,76,.55);
+  color: #F5E6C0; border-radius: 50px; padding: 7px 22px;
+  font-size: 13px; font-weight: 700; letter-spacing: .8px; margin-bottom: 24px;
+  animation: fadeUp .6s ease .1s both;
+}
+.hero-title {
+  font-family: 'Cairo', sans-serif;
+  font-size: clamp(36px,6vw,74px); font-weight: 900; line-height: 1.1;
+  margin-bottom: 16px; animation: fadeUp .6s ease .25s both;
+}
+.hero-title span { color: var(--gold); display: block; }
+.hero-desc {
+  font-size: 17px; opacity: .85; max-width: 560px;
+  line-height: 1.8; margin-bottom: 40px; font-weight: 300;
+  animation: fadeUp .6s ease .4s both;
+}
+.hero-cards {
+  display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
+  animation: fadeUp .6s ease .55s both;
+}
+.hero-card {
+  background: rgba(255,255,255,.11); border: 1px solid rgba(255,255,255,.2);
+  border-radius: 14px; padding: 18px 28px; text-align: center;
+  backdrop-filter: blur(8px);
+}
+.hero-card-num { font-size: 32px; font-weight: 900; color: var(--gold); font-family: 'Cairo', sans-serif; }
+.hero-card-lbl { font-size: 12px; opacity: .8; margin-top: 3px; }
+.scroll-hint {
+  padding: 20px; text-align: center; position: relative; z-index: 4;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── LESSON HEADER ── */
+.main { max-width: 960px; margin: 0 auto; padding: 60px 20px 100px; }
+
+.lesson {
+  margin-bottom: 64px;
+  opacity: 0; transform: translateY(28px);
+  transition: all .55s ease;
+}
+.lesson.visible { opacity: 1; transform: translateY(0); }
+
+.lesson-header {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 24px;
+}
+.lesson-num {
+  width: 52px; height: 52px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cairo', sans-serif; font-size: 22px; font-weight: 900;
+  color: white; flex-shrink: 0; box-shadow: 0 4px 16px rgba(0,0,0,.18);
+}
+.lesson-titles { flex: 1; }
+.lesson-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; opacity: .65; margin-bottom: 2px; }
+.lesson-name { font-family: 'Cairo', sans-serif; font-size: 22px; font-weight: 900; }
+
+/* ── CARD ── */
+.card {
+  background: var(--white); border-radius: var(--radius);
+  padding: 28px 32px; box-shadow: var(--shadow); margin-bottom: 20px;
+}
+
+/* ── EXPLAIN BOX ── */
+.explain-title {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 15px; font-weight: 800; margin-bottom: 14px;
+}
+.explain-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.explain-body { font-size: 14px; line-height: 1.85; color: var(--text-muted); }
+.explain-body strong { color: var(--text); }
+
+.info-row {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 10px 0; border-bottom: 1px dashed #E8EDE9;
+  font-size: 14px; line-height: 1.6;
+}
+.info-row:last-child { border-bottom: none; }
+.info-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+.highlight-box {
+  border-radius: 12px; padding: 14px 18px;
+  margin-top: 14px; font-size: 13px; line-height: 1.7; font-weight: 500;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.highlight-box .hi-icon { font-size: 18px; flex-shrink: 0; }
+
+/* TABLE */
+.comp-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 14px; border-radius: 12px; overflow: hidden; }
+.comp-table th { padding: 10px 14px; color: white; text-align: right; font-weight: 700; }
+.comp-table td { padding: 10px 14px; border-bottom: 1px solid #F0F0F0; text-align: right; }
+.comp-table tr:last-child td { border: none; }
+.comp-table tr:nth-child(even) td { background: #FAFAFA; }
+
+/* ── QUESTION CARD ── */
+.q-card {
+  background: var(--white); border-radius: var(--radius);
+  padding: 0; box-shadow: var(--shadow); overflow: hidden; margin-bottom: 20px;
+}
+.q-card-top {
+  padding: 18px 24px 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.q-badge {
+  border-radius: 8px; padding: 5px 12px;
+  font-size: 11px; font-weight: 800; letter-spacing: 1px;
+  color: white; flex-shrink: 0;
+}
+.q-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; opacity: .6; }
+.q-text {
+  padding: 0 24px 16px;
+  font-size: 15px; font-weight: 700; line-height: 1.6; color: var(--text);
+}
+.q-divider { height: 1px; background: #F0F0F0; margin: 0 24px; }
+
+/* MCQ OPTIONS */
+.mcq-opts { padding: 14px 20px; display: flex; flex-direction: column; gap: 8px; }
+.mcq-opt {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 16px; border-radius: 11px;
+  border: 2px solid #E8EDE9; background: #FAFBFA;
+  font-size: 14px; font-weight: 500; cursor: pointer;
+  transition: all .2s; text-align: right; font-family: 'Tajawal',sans-serif;
+  width: 100%;
+}
+.mcq-opt:hover { border-color: #B0C8B8; background: #F2F7F3; transform: translateX(-3px); }
+.mcq-opt .opt-ltr {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #E8EDE9; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 800; flex-shrink: 0; transition: all .2s;
+}
+.mcq-opt.correct { background: #E6F4EC; border-color: var(--green); }
+.mcq-opt.correct .opt-ltr { background: var(--green); color: white; }
+.mcq-opt.wrong   { background: #FDECEA; border-color: #D32F2F; }
+.mcq-opt.wrong   .opt-ltr { background: #D32F2F; color: white; }
+.mcq-opt.disabled { cursor: default; }
+.mcq-opt.disabled:hover { transform: none; border-color: inherit; background: inherit; }
+
+.q-feedback {
+  margin: 0 20px 16px;
+  padding: 10px 16px; border-radius: 10px;
+  font-size: 13px; font-weight: 600;
+  display: none; align-items: flex-start; gap: 8px; line-height: 1.6;
+}
+.q-feedback.show { display: flex; }
+.q-feedback.ok  { background: #E6F4EC; color: var(--green-dark); }
+.q-feedback.bad { background: #FDECEA; color: #B71C1C; }
+
+/* TF */
+.tf-wrap { padding: 14px 20px 16px; display: flex; gap: 10px; }
+.tf-btn {
+  flex: 1; padding: 12px 8px; border-radius: 11px;
+  border: 2px solid transparent; font-family: 'Tajawal',sans-serif;
+  font-size: 15px; font-weight: 800; cursor: pointer; transition: all .2s;
+}
+.tf-t { background: #E6F4EC; color: var(--green); border-color: #B2DFCC; }
+.tf-f { background: #FDECEA; color: #C62828; border-color: #FFCDD2; }
+.tf-btn:hover { transform: scale(1.03); }
+.tf-btn.sel-ok   { background: var(--green); color: white; border-color: var(--green-dark); }
+.tf-btn.sel-bad  { background: #D32F2F; color: white; border-color: #B71C1C; }
+.tf-btn.disabled { cursor: default; }
+.tf-btn.disabled:hover { transform: none; }
+
+/* MATCH */
+.match-wrap { padding: 14px 20px 18px; }
+.match-cols { display: flex; gap: 10px; }
+.match-col  { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.match-item {
+  padding: 10px 14px; border-radius: 11px;
+  font-size: 13px; font-weight: 600; text-align: center;
+  border: 2px solid transparent; transition: all .2s; line-height: 1.4;
+}
+.match-a {
+  background: #F0F7FF; color: var(--blue);
+  border-color: #BBDEFB; cursor: pointer;
+}
+.match-a:hover { border-color: var(--blue); }
+.match-a.active { border-color: var(--blue); background: #BBDEFB; }
+.match-a.matched { background: #E6F4EC; color: var(--green-dark); border-color: var(--green); cursor: default; }
+.match-a.wrong-match { background: #FDECEA; color: #B71C1C; border-color: #D32F2F; }
+.match-b {
+  background: #F5F5F5; color: var(--text-muted);
+  border-color: #E0E0E0; cursor: pointer;
+}
+.match-b:hover { border-color: #9E9E9E; }
+.match-b.matched { background: #E6F4EC; color: var(--green-dark); border-color: var(--green); cursor: default; }
+.match-b.wrong-match { background: #FDECEA; color: #B71C1C; border-color: #D32F2F; cursor: default; }
+.match-b.highlight { border-color: var(--blue); background: #E3F2FD; }
+
+.match-hint { font-size: 12px; color: var(--text-muted); margin-top: 10px; text-align: center; }
+.match-feedback {
+  margin-top: 10px; padding: 10px 14px; border-radius: 10px;
+  font-size: 13px; font-weight: 600; display: none; gap: 6px; line-height: 1.6;
+}
+.match-feedback.show { display: flex; align-items: flex-start; }
+.match-feedback.ok  { background: #E6F4EC; color: var(--green-dark); }
+.match-feedback.bad { background: #FDECEA; color: #B71C1C; }
+
+/* OPEN */
+.open-wrap { padding: 8px 20px 18px; }
+.open-textarea {
+  width: 100%; min-height: 80px; border-radius: 11px;
+  border: 2px solid #E0E8E3; padding: 12px 14px; resize: vertical;
+  font-family: 'Tajawal',sans-serif; font-size: 14px; line-height: 1.7;
+  background: #FAFBFA; color: var(--text); transition: border .2s;
+}
+.open-textarea:focus { outline: none; border-color: var(--green); background: white; }
+.open-submit {
+  margin-top: 10px; padding: 10px 24px; border-radius: 50px;
+  border: none; background: var(--green); color: white;
+  font-family: 'Tajawal',sans-serif; font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: all .2s;
+}
+.open-submit:hover { background: var(--green-dark); }
+.model-answer {
+  margin-top: 12px; padding: 14px 16px; border-radius: 11px;
+  background: var(--green-light); border-right: 4px solid var(--green);
+  font-size: 13px; line-height: 1.7; color: var(--green-dark);
+  display: none; font-weight: 500;
+}
+.model-answer.show { display: block; }
+.model-label { font-weight: 800; margin-bottom: 4px; font-size: 12px; letter-spacing: .5px; }
+
+/* ── SCORE BAR ── */
+.score-bar {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  background: var(--green-dark); color: white;
+  border-radius: 50px; padding: 13px 28px;
+  display: flex; align-items: center; gap: 16px;
+  box-shadow: 0 8px 36px rgba(0,92,43,.45); z-index: 99;
+  font-size: 14px; font-weight: 600; backdrop-filter: blur(8px);
+}
+.score-bar .snum { font-size: 20px; font-weight: 900; color: var(--gold); font-family: 'Cairo',sans-serif; }
+.score-bar .sdiv { opacity: .35; }
+
+/* ── SECTION DIVIDER ── */
+.sec-divider {
+  display: flex; align-items: center; gap: 16px; margin: 48px 0 28px;
+}
+.sec-line { flex: 1; height: 2px; border-radius: 2px; }
+.sec-chip {
+  border-radius: 50px; padding: 8px 22px;
+  font-size: 13px; font-weight: 800; white-space: nowrap; color: white;
+}
+
+/* ── FINAL ── */
+.final {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  color: white; border-radius: 24px; padding: 56px 40px;
+  text-align: center; margin-top: 60px; overflow: hidden; position: relative;
+}
+.final::before { content: '🎓'; position: absolute; font-size: 180px; opacity: .05; top: -30px; left: 50%; transform: translateX(-50%); }
+.final-title { font-family: 'Cairo',sans-serif; font-size: 32px; font-weight: 900; margin-bottom: 12px; }
+.final-desc  { opacity: .85; font-size: 15px; max-width: 480px; margin: 0 auto 28px; line-height: 1.8; }
+.final-score-box {
+  display: inline-block; background: rgba(255,255,255,.14);
+  border: 2px solid rgba(255,255,255,.28); border-radius: 18px; padding: 28px 44px; margin-bottom: 28px;
+}
+.final-big { font-size: 60px; font-weight: 900; color: var(--gold); font-family: 'Cairo',sans-serif; display: block; }
+.final-lbl  { font-size: 13px; opacity: .8; margin-top: 2px; }
+.final-msg  { font-size: 17px; font-weight: 700; margin-bottom: 24px; }
+.restart-btn {
+  background: var(--gold); color: var(--green-dark); border: none;
+  border-radius: 50px; padding: 14px 36px;
+  font-family: 'Tajawal',sans-serif; font-size: 15px; font-weight: 800;
+  cursor: pointer; transition: all .25s; box-shadow: 0 4px 16px rgba(0,0,0,.2);
+}
+.restart-btn:hover { transform: scale(1.05); background: #D4B05A; }
+
+/* COLORS */
+.c-green  { background: var(--green); }
+.c-blue   { background: var(--blue); }
+.c-orange { background: var(--orange); }
+.c-purple { background: var(--purple); }
+.c-teal   { background: var(--teal); }
+
+.border-green  { border-color: var(--green)!important; }
+.border-blue   { border-color: var(--blue)!important; }
+.border-orange { border-color: var(--orange)!important; }
+.border-purple { border-color: var(--purple)!important; }
+.border-teal   { border-color: var(--teal)!important; }
+
+.text-green  { color: var(--green); }
+.text-blue   { color: var(--blue); }
+.text-orange { color: var(--orange); }
+.text-purple { color: var(--purple); }
+.text-teal   { color: var(--teal); }
+
+.bg-green  { background: var(--green-light); }
+.bg-blue   { background: var(--blue-light); }
+.bg-orange { background: var(--orange-light); }
+.bg-purple { background: var(--purple-light); }
+.bg-teal   { background: var(--teal-light); }
+
+@media(max-width:700px){
+  .nav { padding: 16px 18px; }
+  .hero-body { padding: 36px 16px; }
+  .main { padding: 40px 14px 80px; }
+  .card, .q-card { padding: 20px 18px; }
+  .card { padding: 20px; }
+  .match-cols { flex-direction: column; }
+  .final { padding: 36px 20px; }
+  .score-bar { width: 90%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<header class="hero">
+  <nav class="nav">
+    <div class="logo-area">
+      <div class="logo-box">
+        <img src="https://www.maarif.edu.sa/wp-content/uploads/2021/09/maarif-logo.png" alt="معارف"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Maarif_Schools_logo.svg/200px-Maarif_Schools_logo.svg.png';
+          this.onerror=function(){this.parentElement.innerHTML='<svg viewBox=\'0 0 60 60\' width=\'54\' height=\'54\'><circle cx=\'30\' cy=\'30\' r=\'28\' fill=\'%2300843D\'/><text x=\'30\' y=\'36\' text-anchor=\'middle\' fill=\'white\' font-size=\'13\' font-family=\'Tajawal\' font-weight=\'900\'>معارف</text></svg>';}" />
+      </div>
+      <div>
+        <div class="logo-name">مدارس معارف</div>
+        <div class="logo-sub">ابن خلدون · المهارات الرقمية</div>
+      </div>
+    </div>
+    <div class="nav-tag">📋 مراجعة اختبار الفترة الثانية ١٤٤٧</div>
+  </nav>
+
+  <div class="hero-body">
+    <div class="hero-chip">📚 رحلة تعليمية مراجعة شاملة</div>
+    <h1 class="hero-title">
+      المهارات الرقمية
+      <span>الصف الثالث المتوسط</span>
+    </h1>
+    <p class="hero-desc">
+      تعلّم كل درس مع شرح مبسط ثم أجب على نفس أسئلة الاختبار الفعلية —
+      الاختيار من متعدد، الصح والخطأ، الوصل، والأسئلة المقالية
+    </p>
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="hero-card-num">٥</div>
+        <div class="hero-card-lbl">دروس</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-num">٢٤</div>
+        <div class="hero-card-lbl">سؤالاً من الاختبار</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-num">٣٠</div>
+        <div class="hero-card-lbl">الدرجة الكاملة</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</header>
+
+<!-- ══════════ MAIN ══════════ -->
+<main class="main">
+
+<!-- ═══════════════════════════════════════
+     LESSON 1 — تجمد الحاسب / نظام التشغيل
+════════════════════════════════════════ -->
+<div class="lesson" id="l1">
+  <div class="lesson-header">
+    <div class="lesson-num c-green">١</div>
+    <div class="lesson-titles">
+      <div class="lesson-eyebrow text-green">الدرس الأول</div>
+      <div class="lesson-name">صيانة الحاسب — تجمد نظام التشغيل</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="explain-title">
+      <div class="explain-dot" style="background:var(--green)"></div>
+      <span class="text-green">الشرح</span>
+    </div>
+    <div class="explain-body">
+      <div class="info-row"><span class="info-icon">🖥️</span><span>عندما يتجمد <strong>برنامج واحد فقط</strong> ومؤشر الفأرة لا يزال يتحرك، لا تعيد التشغيل مباشرة.</span></div>
+      <div class="info-row"><span class="info-icon">✅</span><span>الحل الصحيح هو <strong>مدير المهام (Task Manager)</strong> — يتيح لك إنهاء البرنامج المتجمد بدون إعادة التشغيل.</span></div>
+      <div class="info-row"><span class="info-icon">⌨️</span><span>الاختصار السريع لمدير المهام: <strong>Ctrl + Shift + Esc</strong></span></div>
+      <div class="info-row"><span class="info-icon">🔑</span><span>إذا لم تستجب الفأرة استخدم <strong>Tab</strong> للتنقل بين الأزرار في مربعات الحوار.</span></div>
+      <div class="info-row"><span class="info-icon">⚠️</span><span>إذا ظهرت رسالة <strong>"Operating system is missing"</strong> فهذه مشكلة كبيرة → تواصل مع فني مختص.</span></div>
+    </div>
+    <div class="highlight-box bg-green" style="border-right: 4px solid var(--green);">
+      <span class="hi-icon">💡</span>
+      <span>القاعدة الذهبية: ابدأ دائماً بالحل الأبسط قبل الأكثر تعقيداً.</span>
+    </div>
+  </div>
+
+  <!-- Q1 MCQ -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-green">اختيار من متعدد</div>
+      <div class="q-label">السؤال ١ من الاختبار — ٦ درجات</div>
+    </div>
+    <div class="q-text">
+      إذا توقف البرنامج الحالي عن الاستجابة ولكن مؤشر الفأرة لا يزال يتحرك، يمكنك استخدام أداة:
+    </div>
+    <div class="q-divider"></div>
+    <div class="mcq-opts" id="q1">
+      <button class="mcq-opt" onclick="mcq(this,'q1',false)"><span class="opt-ltr">أ</span> تنظيف القرص (Disk Cleanup)</button>
+      <button class="mcq-opt" onclick="mcq(this,'q1',true)"><span class="opt-ltr">ب</span> مدير المهام (Task Manager)</button>
+      <button class="mcq-opt" onclick="mcq(this,'q1',false)"><span class="opt-ltr">ج</span> موجه الأوامر (Command Prompt)</button>
+      <button class="mcq-opt" onclick="mcq(this,'q1',false)"><span class="opt-ltr">د</span> إلغاء التجزئة (Defragmentation)</button>
+    </div>
+    <div class="q-feedback ok" id="q1-ok">✅ ممتاز! مدير المهام هو الأداة الصحيحة لإنهاء البرامج المتجمدة دون إعادة تشغيل الحاسب.</div>
+    <div class="q-feedback bad" id="q1-bad">❌ الإجابة الصحيحة: <strong>ب) مدير المهام (Task Manager)</strong> — يتيح إنهاء البرنامج المتجمد بشكل منفصل.</div>
+  </div>
+
+  <!-- TF 3 -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-green">صح أم خطأ</div>
+      <div class="q-label">السؤال ٣ من السؤال الثاني — ٨ درجات</div>
+    </div>
+    <div class="q-text">يمكن استخدام المفتاح TAB للتنقل بين الأزرار في مربعات الحوار إذا كانت الفأرة لا تعمل.</div>
+    <div class="q-divider"></div>
+    <div class="tf-wrap" id="tf3">
+      <button class="tf-btn tf-t" onclick="tf(this,'tf3',true)">✅ صحيح</button>
+      <button class="tf-btn tf-f" onclick="tf(this,'tf3',false)">❌ خطأ</button>
+    </div>
+    <div class="q-feedback ok" id="tf3-ok" style="margin: 0 20px 14px;">✅ صحيح! مفتاح TAB يتنقل بين عناصر الواجهة عند تعطل الفأرة.</div>
+    <div class="q-feedback bad" id="tf3-bad" style="margin: 0 20px 14px;">❌ العبارة صحيحة — TAB يستخدم للتنقل بين الأزرار في مربعات الحوار.</div>
+  </div>
+
+  <!-- TF 2 -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-green">صح أم خطأ</div>
+      <div class="q-label">السؤال ٢ من السؤال الثاني</div>
+    </div>
+    <div class="q-text">إذا ظهرت رسالة "Operating system is missing"، يفضل الاتصال بفني مختص لأن المشكلة قد تكون كبيرة.</div>
+    <div class="q-divider"></div>
+    <div class="tf-wrap" id="tf2">
+      <button class="tf-btn tf-t" onclick="tf(this,'tf2',true)">✅ صحيح</button>
+      <button class="tf-btn tf-f" onclick="tf(this,'tf2',false)">❌ خطأ</button>
+    </div>
+    <div class="q-feedback ok" id="tf2-ok" style="margin: 0 20px 14px;">✅ صحيح! هذه الرسالة تشير لمشكلة في نظام التشغيل أو القرص الصلب وتحتاج متخصص.</div>
+    <div class="q-feedback bad" id="tf2-bad" style="margin: 0 20px 14px;">❌ العبارة صحيحة — رسالة "Operating system is missing" تعني وجود مشكلة كبيرة تحتاج فني.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     LESSON 2 — محركات الأقراص / HDD / SSD
+════════════════════════════════════════ -->
+<div class="sec-divider">
+  <div class="sec-line" style="background: linear-gradient(to left, var(--blue), transparent)"></div>
+  <div class="sec-chip c-blue">الدرس الثاني</div>
+  <div class="sec-line" style="background: linear-gradient(to right, var(--blue), transparent)"></div>
+</div>
+
+<div class="lesson" id="l2">
+  <div class="lesson-header">
+    <div class="lesson-num c-blue">٢</div>
+    <div class="lesson-titles">
+      <div class="lesson-eyebrow text-blue">الدرس الثاني</div>
+      <div class="lesson-name">محركات الأقراص — HDD وSSD وإلغاء التجزئة</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="explain-title">
+      <div class="explain-dot" style="background:var(--blue)"></div>
+      <span class="text-blue">الشرح</span>
+    </div>
+    <div class="explain-body">
+      <div class="info-row"><span class="info-icon">🐌</span><span>عندما يبطئ الحاسب بسبب كثرة الحفظ والتعديل، السبب غالباً هو <strong>تجزئة القرص الصلب</strong>.</span></div>
+      <div class="info-row"><span class="info-icon">💿</span><span><strong>HDD (قرص دوار):</strong> تحدث فيه التجزئة ويحتاج إلغاء التجزئة (Defragmentation) دورياً.</span></div>
+      <div class="info-row"><span class="info-icon">⚡</span><span><strong>SSD (فلاش):</strong> لا يحتاج إلغاء التجزئة بل قد يتضرر منها! يستخدم تقنية TRIM بدلاً منها.</span></div>
+      <div class="info-row"><span class="info-icon">🔊</span><span>سماع <strong>طقطقة أو صرير</strong> من القرص الصلب؟ → خطر! احفظ نسخة احتياطية فوراً.</span></div>
+    </div>
+    <table class="comp-table">
+      <thead><tr>
+        <th style="background:var(--blue)">الخاصية</th>
+        <th style="background:var(--blue)">HDD</th>
+        <th style="background:var(--blue)">SSD</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>تقنية التخزين</td><td>أقراص دوارة ميكانيكية</td><td>شرائح ذاكرة فلاش</td></tr>
+        <tr><td>هل تحدث التجزئة؟</td><td>✅ نعم، تؤثر على الأداء</td><td>❌ لا تتأثر</td></tr>
+        <tr><td>إلغاء التجزئة</td><td>✅ ضروري ومفيد</td><td>❌ ضار ومُضر</td></tr>
+        <tr><td>الصيانة الدورية</td><td>Defragmentation</td><td>TRIM (تلقائي)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Q2 MCQ -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-blue">اختيار من متعدد</div>
+      <div class="q-label">السؤال ٢ من الاختبار</div>
+    </div>
+    <div class="q-text">عملية إعادة ترتيب البيانات المجزأة على محرك الأقراص الثابتة (HDD) لتسريع عمل الحاسب تسمى:</div>
+    <div class="q-divider"></div>
+    <div class="mcq-opts" id="q2">
+      <button class="mcq-opt" onclick="mcq(this,'q2',false)"><span class="opt-ltr">أ</span> التهيئة (Formatting)</button>
+      <button class="mcq-opt" onclick="mcq(this,'q2',true)"><span class="opt-ltr">ب</span> إلغاء التجزئة (Defragmentation)</button>
+      <button class="mcq-opt" onclick="mcq(this,'q2',false)"><span class="opt-ltr">ج</span> تنظيف القرص (Disk Cleanup)</button>
+      <button class="mcq-opt" onclick="mcq(this,'q2',false)"><span class="opt-ltr">د</span> التخزين السحابي (Cloud Storage)</button>
+    </div>
+    <div class="q-feedback ok" id="q2-ok">✅ ممتاز! إلغاء التجزئة يعيد ترتيب أجزاء الملفات المبعثرة على HDD لتسريع الوصول إليها.</div>
+    <div class="q-feedback bad" id="q2-bad">❌ الإجابة الصحيحة: <strong>ب) إلغاء التجزئة (Defragmentation)</strong> — تخص HDD فقط.</div>
+  </div>
+
+  <!-- TF 1 -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-blue">صح أم خطأ</div>
+      <div class="q-label">السؤال ١ من السؤال الثاني</div>
+    </div>
+    <div class="q-text">محركات الأقراص ذي الحالة الصلبة (SSD) لا تحتاج إلى عملية إلغاء التجزئة وقد تتضرر منها.</div>
+    <div class="q-divider"></div>
+    <div class="tf-wrap" id="tf1">
+      <button class="tf-btn tf-t" onclick="tf(this,'tf1',true)">✅ صحيح</button>
+      <button class="tf-btn tf-f" onclick="tf(this,'tf1',false)">❌ خطأ</button>
+    </div>
+    <div class="q-feedback ok" id="tf1-ok" style="margin: 0 20px 14px;">✅ صحيح! SSD لا يتجزأ وقد تضره عملية إلغاء التجزئة لأنها تزيد الكتابة على الخلايا.</div>
+    <div class="q-feedback bad" id="tf1-bad" style="margin: 0 20px 14px;">❌ العبارة صحيحة — SSD فعلاً لا يحتاج إلغاء التجزئة وقد يتضرر منها.</div>
+  </div>
+
+  <!-- MATCH Q3 (المشاكل) — جزء منها -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-blue">صل بين العمودين</div>
+      <div class="q-label">السؤال ٣ — صل (جزء خاص بالقرص والحرارة)</div>
+    </div>
+    <div class="q-text">صل بين المشكلة وما تؤدي إليه أو الحل المناسب:</div>
+    <div class="q-divider"></div>
+    <div class="match-wrap">
+      <div class="match-cols">
+        <div class="match-col" id="m1a">
+          <div class="match-item match-a" data-id="m1" data-match="1" onclick="selectA(this,'m1a','m1b')">٣. ارتفاع حرارة الحاسب</div>
+          <div class="match-item match-a" data-id="m2" data-match="2" onclick="selectA(this,'m1a','m1b')">٥. تجزئة القرص</div>
+        </div>
+        <div class="match-col" id="m1b">
+          <div class="match-item match-b" data-id="1" onclick="selectB(this,'m1a','m1b','match1')">يؤدي لبطء الأداء ومشاكل أخرى ويجب تبريد الجهاز</div>
+          <div class="match-item match-b" data-id="2" onclick="selectB(this,'m1a','m1b','match1')">يؤدي إلى بطء عمل جهاز الحاسب</div>
+        </div>
+      </div>
+      <div class="match-hint">💡 اضغط على عنصر من العمود الأيمن ثم اضغط على الإجابة المقابلة</div>
+      <div class="match-feedback" id="match1-fb"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     LESSON 3 — الأجهزة الطرفية
+════════════════════════════════════════ -->
+<div class="sec-divider">
+  <div class="sec-line" style="background: linear-gradient(to left, var(--orange), transparent)"></div>
+  <div class="sec-chip c-orange">الدرس الثالث</div>
+  <div class="sec-line" style="background: linear-gradient(to right, var(--orange), transparent)"></div>
+</div>
+
+<div class="lesson" id="l3">
+  <div class="lesson-header">
+    <div class="lesson-num c-orange">٣</div>
+    <div class="lesson-titles">
+      <div class="lesson-eyebrow text-orange">الدرس الثالث</div>
+      <div class="lesson-name">مشاكل الأجهزة الطرفية والشبكة</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="explain-title">
+      <div class="explain-dot" style="background:var(--orange)"></div>
+      <span class="text-orange">الشرح</span>
+    </div>
+    <div class="explain-body">
+      <div class="info-row"><span class="info-icon">🔊</span><span><strong>لا يوجد صوت:</strong> تأكد من المنفذ الأخضر (Line Out) وأن كتم الصوت (Mute) غير مفعّل.</span></div>
+      <div class="info-row"><span class="info-icon">🖨️</span><span><strong>الطابعة تطبع ألواناً باهتة:</strong> يدل على قرب نفاد الحبر من الخرطوشة → يجب تغييرها.</span></div>
+      <div class="info-row"><span class="info-icon">⚠️</span><span><strong>الورق العالق في الطابعة:</strong> لا تستخدم القوة! لأنها قد تُمزق الورق أو تتلف أجزاء الطابعة الداخلية.</span></div>
+      <div class="info-row"><span class="info-icon">🖱️</span><span><strong>الفأرة اللاسلكية لا تعمل:</strong> أول خطوة هي <strong>تغيير البطاريات</strong> أو التحقق من المستقبل (USB Receiver).</span></div>
+      <div class="info-row"><span class="info-icon">📶</span><span><strong>الراوتر اللاسلكي:</strong> يجب وضعه في <strong>مكان مرتفع ومفتوح</strong> لضمان قوة الإشارة (وليس منخفضاً مغلقاً!).</span></div>
+      <div class="info-row"><span class="info-icon">🌐</span><span><strong>توقف الإنترنت:</strong> تحقق من كابلات الشبكة والموجه (Router) أولاً.</span></div>
+    </div>
+    <div class="highlight-box bg-orange" style="border-right: 4px solid var(--orange);">
+      <span class="hi-icon">🎨</span>
+      <span>منافذ الصوت: <strong>أخضر</strong> = السماعات | <strong>زهري</strong> = الميكروفون | <strong>أزرق</strong> = مدخل الخط</span>
+    </div>
+  </div>
+
+  <!-- Open Q1 -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-orange">سؤال مقالي</div>
+      <div class="q-label">السؤال ٥-١ من الاختبار — ٣ درجات</div>
+    </div>
+    <div class="q-text">لماذا يجب عدم استخدام القوة لإزالة الورق العالق داخل الطابعة؟</div>
+    <div class="q-divider"></div>
+    <div class="open-wrap">
+      <textarea class="open-textarea" id="open1" placeholder="اكتب إجابتك هنا..."></textarea>
+      <button class="open-submit" onclick="showModel('open1','model1')">عرض الإجابة النموذجية</button>
+      <div class="model-answer" id="model1">
+        <div class="model-label">📋 الإجابة النموذجية:</div>
+        حتى لا تتسبب في <strong>تمزيق الورق وبقاء أجزاء منه عالقة</strong> داخل الطابعة، أو <strong>إتلاف الأجزاء الداخلية</strong> للطابعة مما يؤدي إلى أعطال أكبر.
+      </div>
+    </div>
+  </div>
+
+  <!-- Open Q2 -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-orange">سؤال مقالي</div>
+      <div class="q-label">السؤال ٥-٢ من الاختبار — ٣ درجات</div>
+    </div>
+    <div class="q-text">اذكر خطوة واحدة لحل مشكلة توقف الفأرة اللاسلكية عن العمل.</div>
+    <div class="q-divider"></div>
+    <div class="open-wrap">
+      <textarea class="open-textarea" id="open2" placeholder="اكتب إجابتك هنا..."></textarea>
+      <button class="open-submit" onclick="showModel('open2','model2')">عرض الإجابة النموذجية</button>
+      <div class="model-answer" id="model2">
+        <div class="model-label">📋 الإجابة النموذجية:</div>
+        تغيير البطاريات، <strong>أو</strong> التأكد من توصيل المستقبل اللاسلكي (USB Receiver) بمنفذ USB بشكل صحيح.
+      </div>
+    </div>
+  </div>
+
+  <!-- TF 4 — الراوتر -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-orange">صح أم خطأ</div>
+      <div class="q-label">السؤال ٤ من السؤال الثاني</div>
+    </div>
+    <div class="q-text">يجب وضع جهاز التوجيه (Router) اللاسلكي في مكان منخفض وزاوية مغلقة لضمان قوة الإشارة.</div>
+    <div class="q-divider"></div>
+    <div class="tf-wrap" id="tf4">
+      <button class="tf-btn tf-t" onclick="tf(this,'tf4',false)">✅ صحيح</button>
+      <button class="tf-btn tf-f" onclick="tf(this,'tf4',true)">❌ خطأ</button>
+    </div>
+    <div class="q-feedback ok" id="tf4-ok" style="margin: 0 20px 14px;">✅ صحيح أن هذه العبارة خاطئة! الراوتر يجب أن يكون في مكان <strong>مرتفع ومفتوح</strong> للحصول على إشارة أقوى.</div>
+    <div class="q-feedback bad" id="tf4-bad" style="margin: 0 20px 14px;">❌ العبارة خاطئة (✗) — الراوتر يجب أن يكون في مكان مرتفع ومفتوح وليس منخفضاً مغلقاً.</div>
+  </div>
+
+  <!-- MATCH Q3 — المشاكل كاملة -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-orange">صل بين العمودين</div>
+      <div class="q-label">السؤال الثالث كاملاً — ٥ درجات</div>
+    </div>
+    <div class="q-text">صل بين العمود (أ) والعمود (ب):</div>
+    <div class="q-divider"></div>
+    <div class="match-wrap">
+      <div class="match-cols">
+        <div class="match-col" id="m3a">
+          <div class="match-item match-a" data-id="a1" data-correct="b2" onclick="selectA(this,'m3a','m3b')">١. مشكلة عدم وجود صوت</div>
+          <div class="match-item match-a" data-id="a2" data-correct="b4" onclick="selectA(this,'m3a','m3b')">٢. طباعة ألوان باهتة</div>
+          <div class="match-item match-a" data-id="a3" data-correct="b3" onclick="selectA(this,'m3a','m3b')">٣. ارتفاع حرارة الحاسب</div>
+          <div class="match-item match-a" data-id="a4" data-correct="b5" onclick="selectA(this,'m3a','m3b')">٤. توقف الإنترنت فجأة</div>
+          <div class="match-item match-a" data-id="a5" data-correct="b1" onclick="selectA(this,'m3a','m3b')">٥. تجزئة القرص</div>
+        </div>
+        <div class="match-col" id="m3b">
+          <div class="match-item match-b" data-id="b1" onclick="selectB(this,'m3a','m3b','m3')">يؤدي إلى بطء عمل جهاز الحاسب</div>
+          <div class="match-item match-b" data-id="b2" onclick="selectB(this,'m3a','m3b','m3')">تأكد من عدم تفعيل زر كتم الصوت (Mute)</div>
+          <div class="match-item match-b" data-id="b3" onclick="selectB(this,'m3a','m3b','m3')">يؤدي لبطء الأداء ومشاكل أخرى ويجب تبريد الجهاز</div>
+          <div class="match-item match-b" data-id="b4" onclick="selectB(this,'m3a','m3b','m3')">يدل على قرب نفاد الحبر من الخرطوشة</div>
+          <div class="match-item match-b" data-id="b5" onclick="selectB(this,'m3a','m3b','m3')">تحقق من كابلات الشبكة والموجه</div>
+        </div>
+      </div>
+      <div class="match-hint">💡 اضغط على عنصر من العمود الأيمن ثم اضغط على الإجابة المقابلة</div>
+      <div class="match-feedback" id="m3-fb"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     LESSON 4 — التخزين السحابي
+════════════════════════════════════════ -->
+<div class="sec-divider">
+  <div class="sec-line" style="background: linear-gradient(to left, var(--purple), transparent)"></div>
+  <div class="sec-chip c-purple">الدرس الرابع</div>
+  <div class="sec-line" style="background: linear-gradient(to right, var(--purple), transparent)"></div>
+</div>
+
+<div class="lesson" id="l4">
+  <div class="lesson-header">
+    <div class="lesson-num c-purple">٤</div>
+    <div class="lesson-titles">
+      <div class="lesson-eyebrow text-purple">الدرس الرابع</div>
+      <div class="lesson-name">التخزين السحابي — المفهوم والمميزات والعيوب</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="explain-title">
+      <div class="explain-dot" style="background:var(--purple)"></div>
+      <span class="text-purple">الشرح</span>
+    </div>
+    <div class="explain-body">
+      <div class="info-row"><span class="info-icon">☁️</span><span><strong>التخزين السحابي:</strong> حفظ الملفات على <strong>خوادم بعيدة عبر الإنترنت</strong> — وليس على قرصك الصلب.</span></div>
+      <div class="info-row"><span class="info-icon">✅</span><span><strong>المميزات:</strong> حماية البيانات من التلف | الوصول من أي جهاز في أي مكان | سهولة المشاركة والتعاون.</span></div>
+      <div class="info-row"><span class="info-icon">⚠️</span><span><strong>العيوب:</strong> يحتاج اتصالاً بالإنترنت دائماً | مخاوف الأمان | خطر عدم التوافق بين الخدمات.</span></div>
+      <div class="info-row"><span class="info-icon">📱</span><span>أشهر تطبيق: <strong>جوجل درايف (Google Drive)</strong> — مساحة مجانية 15 جيجابايت.</span></div>
+    </div>
+    <div class="highlight-box bg-purple" style="border-right: 4px solid var(--purple);">
+      <span class="hi-icon">🔑</span>
+      <span>الفرق الجوهري: التخزين التقليدي = داخل جهازك | التخزين السحابي = خوادم بعيدة عبر الإنترنت.</span>
+    </div>
+  </div>
+
+  <!-- Q5 MCQ -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-purple">اختيار من متعدد</div>
+      <div class="q-label">السؤال ٥ من الاختبار</div>
+    </div>
+    <div class="q-text">تعتمد تقنية التخزين السحابي بشكل أساسي على وجود:</div>
+    <div class="q-divider"></div>
+    <div class="mcq-opts" id="q5">
+      <button class="mcq-opt" onclick="mcq(this,'q5',false)"><span class="opt-ltr">أ</span> طابعة متصلة بالجهاز</button>
+      <button class="mcq-opt" onclick="mcq(this,'q5',true)"><span class="opt-ltr">ب</span> اتصال بالإنترنت</button>
+      <button class="mcq-opt" onclick="mcq(this,'q5',false)"><span class="opt-ltr">ج</span> محرك أقراص صلبة خارجي</button>
+      <button class="mcq-opt" onclick="mcq(this,'q5',false)"><span class="opt-ltr">د</span> نظام تشغيل قديم</button>
+    </div>
+    <div class="q-feedback ok" id="q5-ok">✅ صحيح! التخزين السحابي يعتمد كلياً على الإنترنت للوصول إلى الملفات على الخوادم البعيدة.</div>
+    <div class="q-feedback bad" id="q5-bad">❌ الإجابة الصحيحة: <strong>ب) اتصال بالإنترنت</strong> — شرط أساسي للوصول للسحابة.</div>
+  </div>
+
+  <!-- Q6 MCQ -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-purple">اختيار من متعدد</div>
+      <div class="q-label">السؤال ٦ من الاختبار</div>
+    </div>
+    <div class="q-text">من أهم تطبيقات التخزين السحابي الشائعة والمذكورة في الدرس:</div>
+    <div class="q-divider"></div>
+    <div class="mcq-opts" id="q6">
+      <button class="mcq-opt" onclick="mcq(this,'q6',false)"><span class="opt-ltr">أ</span> مايكروسوفت وورد (Word)</button>
+      <button class="mcq-opt" onclick="mcq(this,'q6',true)"><span class="opt-ltr">ب</span> جوجل درايف (Google Drive)</button>
+      <button class="mcq-opt" onclick="mcq(this,'q6',false)"><span class="opt-ltr">ج</span> برنامج الرسام</button>
+      <button class="mcq-opt" onclick="mcq(this,'q6',false)"><span class="opt-ltr">د</span> تطبيق الحاسبة</button>
+    </div>
+    <div class="q-feedback ok" id="q6-ok">✅ ممتاز! جوجل درايف هو أشهر خدمات التخزين السحابي المذكورة في الكتاب.</div>
+    <div class="q-feedback bad" id="q6-bad">❌ الإجابة الصحيحة: <strong>ب) جوجل درايف (Google Drive)</strong>.</div>
+  </div>
+
+  <!-- TF 5 — السحابة وHDD -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-purple">صح أم خطأ</div>
+      <div class="q-label">السؤال ٥ من السؤال الثاني</div>
+    </div>
+    <div class="q-text">يتم تخزين الملفات في التخزين السحابي على محرك الأقراص الصلبة (Hard disk drive) الموجود داخل جهاز الحاسب الخاص بك فقط.</div>
+    <div class="q-divider"></div>
+    <div class="tf-wrap" id="tf5">
+      <button class="tf-btn tf-t" onclick="tf(this,'tf5',false)">✅ صحيح</button>
+      <button class="tf-btn tf-f" onclick="tf(this,'tf5',true)">❌ خطأ</button>
+    </div>
+    <div class="q-feedback ok" id="tf5-ok" style="margin: 0 20px 14px;">✅ صحيح أن العبارة خاطئة! التخزين السحابي يحفظ الملفات على <strong>خوادم بعيدة عبر الإنترنت</strong> وليس قرصك الصلب.</div>
+    <div class="q-feedback bad" id="tf5-bad" style="margin: 0 20px 14px;">❌ العبارة خاطئة (✗) — الملفات تُحفظ على خوادم بعيدة (Remote Servers) وليس قرصك المحلي.</div>
+  </div>
+
+  <!-- TF 8 — عيب الإنترنت -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-purple">صح أم خطأ</div>
+      <div class="q-label">السؤال ٨ من السؤال الثاني</div>
+    </div>
+    <div class="q-text">من عيوب التخزين السحابي أنه قد لا يمكن الوصول إلى الملفات في حالة عدم توفر اتصال بالإنترنت.</div>
+    <div class="q-divider"></div>
+    <div class="tf-wrap" id="tf8">
+      <button class="tf-btn tf-t" onclick="tf(this,'tf8',true)">✅ صحيح</button>
+      <button class="tf-btn tf-f" onclick="tf(this,'tf8',false)">❌ خطأ</button>
+    </div>
+    <div class="q-feedback ok" id="tf8-ok" style="margin: 0 20px 14px;">✅ صحيح! هذا فعلاً أحد عيوب التخزين السحابي — بدون إنترنت لا تستطيع الوصول لملفاتك.</div>
+    <div class="q-feedback bad" id="tf8-bad" style="margin: 0 20px 14px;">❌ العبارة صحيحة (✓) — الاعتماد على الإنترنت هو أبرز عيوب التخزين السحابي.</div>
+  </div>
+
+  <!-- Open Q3 -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-purple">سؤال مقالي</div>
+      <div class="q-label">السؤال ٥-٣ من الاختبار — ٣ درجات</div>
+    </div>
+    <div class="q-text">كيف يساعد التخزين السحابي في حماية البيانات عند تعطل جهاز الحاسب؟</div>
+    <div class="q-divider"></div>
+    <div class="open-wrap">
+      <textarea class="open-textarea" id="open3" placeholder="اكتب إجابتك هنا..."></textarea>
+      <button class="open-submit" onclick="showModel('open3','model3')">عرض الإجابة النموذجية</button>
+      <div class="model-answer" id="model3">
+        <div class="model-label">📋 الإجابة النموذجية:</div>
+        لأن الملفات تُخزَّن على <strong>خوادم بعيدة (Remote Servers)</strong> عبر الإنترنت وليس داخل الجهاز، مما يسمح <strong>باستعادتها من جهاز آخر</strong> حتى لو تعطل جهازك الأصلي كلياً.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     LESSON 5 — جوجل درايف والصلاحيات
+════════════════════════════════════════ -->
+<div class="sec-divider">
+  <div class="sec-line" style="background: linear-gradient(to left, var(--teal), transparent)"></div>
+  <div class="sec-chip c-teal">الدرس الخامس</div>
+  <div class="sec-line" style="background: linear-gradient(to right, var(--teal), transparent)"></div>
+</div>
+
+<div class="lesson" id="l5">
+  <div class="lesson-header">
+    <div class="lesson-num c-teal">٥</div>
+    <div class="lesson-titles">
+      <div class="lesson-eyebrow text-teal">الدرس الخامس</div>
+      <div class="lesson-name">جوجل درايف — الأقسام والصلاحيات والمشاركة</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="explain-title">
+      <div class="explain-dot" style="background:var(--teal)"></div>
+      <span class="text-teal">الشرح</span>
+    </div>
+    <div class="explain-body">
+      <div class="info-row"><span class="info-icon">📁</span><span><strong>ملفاتي (My Drive):</strong> يحتوي الملفات والمجلدات التي رفعتها أنت — ملكيتها لك.</span></div>
+      <div class="info-row"><span class="info-icon">🤝</span><span><strong>تمت مشاركتها معي (Shared with me):</strong> ملفات شاركها معك أشخاص آخرون.</span></div>
+      <div class="info-row"><span class="info-icon">👁️</span><span><strong>مُشاهِد (Viewer):</strong> يمكنه عرض الملف فقط — لا تعديل ولا تعليق.</span></div>
+      <div class="info-row"><span class="info-icon">💬</span><span><strong>مُعلِّق (Commenter):</strong> يمكنه عرض الملف وإبداء التعليقات والاقتراحات فقط — لا تعديل.</span></div>
+      <div class="info-row"><span class="info-icon">✏️</span><span><strong>مُحرِّر (Editor):</strong> يمكنه تعديل الملف وحذفه وإضافة ملفات ومشاركته — أقوى صلاحية.</span></div>
+      <div class="info-row"><span class="info-icon">🔗</span><span><strong>مشاركة برابط:</strong> يمكنك تحديد الصلاحيات (مشاهدة أو تعديل) حتى للرابط العام — لا يمكنك تقييدها = خطأ.</span></div>
+    </div>
+    <table class="comp-table">
+      <thead><tr>
+        <th style="background:var(--teal)">الصلاحية</th>
+        <th style="background:var(--teal)">عرض</th>
+        <th style="background:var(--teal)">تعليق</th>
+        <th style="background:var(--teal)">تعديل/حذف</th>
+        <th style="background:var(--teal)">مشاركة</th>
+      </tr></thead>
+      <tbody>
+        <tr><td><strong>مشاهد (Viewer)</strong></td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+        <tr><td><strong>معلّق (Commenter)</strong></td><td>✅</td><td>✅</td><td>❌</td><td>❌</td></tr>
+        <tr><td><strong>محرّر (Editor)</strong></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Q3 MCQ -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-teal">اختيار من متعدد</div>
+      <div class="q-label">السؤال ٣ من الاختبار</div>
+    </div>
+    <div class="q-text">أي من الصلاحيات التالية تتيح للمستخدم عرض الملف وإبداء التعليقات والاقتراحات فقط دون القدرة على تغييره؟</div>
+    <div class="q-divider"></div>
+    <div class="mcq-opts" id="q3">
+      <button class="mcq-opt" onclick="mcq(this,'q3',false)"><span class="opt-ltr">أ</span> المُشاهِد (Viewer)</button>
+      <button class="mcq-opt" onclick="mcq(this,'q3',true)"><span class="opt-ltr">ب</span> المُعلِّق (Commenter)</button>
+      <button class="mcq-opt" onclick="mcq(this,'q3',false)"><span class="opt-ltr">ج</span> المُحرِّر (Editor)</button>
+      <button class="mcq-opt" onclick="mcq(this,'q3',false)"><span class="opt-ltr">د</span> المالك (Owner)</button>
+    </div>
+    <div class="q-feedback ok" id="q3-ok">✅ ممتاز! المُعلِّق (Commenter) يعرض ويعلق فقط — المُشاهِد لا يستطيع حتى التعليق.</div>
+    <div class="q-feedback bad" id="q3-bad">❌ الإجابة الصحيحة: <strong>ب) المُعلِّق (Commenter)</strong> — عرض + تعليق فقط بدون تعديل.</div>
+  </div>
+
+  <!-- Q4 MCQ -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-teal">اختيار من متعدد</div>
+      <div class="q-label">السؤال ٤ من الاختبار</div>
+    </div>
+    <div class="q-text">في أي قسم من جوجل درايف تجد الملفات والمجلدات التي قام المستخدمون الآخرون بمشاركتها معك؟</div>
+    <div class="q-divider"></div>
+    <div class="mcq-opts" id="q4">
+      <button class="mcq-opt" onclick="mcq(this,'q4',false)"><span class="opt-ltr">أ</span> ملفاتي (My Drive)</button>
+      <button class="mcq-opt" onclick="mcq(this,'q4',false)"><span class="opt-ltr">ب</span> الأجهزة الحاسوبية</button>
+      <button class="mcq-opt" onclick="mcq(this,'q4',true)"><span class="opt-ltr">ج</span> تمت مشاركتها معي (Shared with me)</button>
+      <button class="mcq-opt" onclick="mcq(this,'q4',false)"><span class="opt-ltr">د</span> المحذوفات</button>
+    </div>
+    <div class="q-feedback ok" id="q4-ok">✅ صحيح! "تمت مشاركتها معي" يعرض ما شاركه معك الآخرون.</div>
+    <div class="q-feedback bad" id="q4-bad">❌ الإجابة الصحيحة: <strong>ج) تمت مشاركتها معي (Shared with me)</strong>.</div>
+  </div>
+
+  <!-- TF 6 — Editor -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-teal">صح أم خطأ</div>
+      <div class="q-label">السؤال ٦ من السؤال الثاني</div>
+    </div>
+    <div class="q-text">صلاحية 'المُحرِّر' (Editor) تمنح المستخدم القدرة على إزالة الملفات أو إضافتها إلى المجلد وتعديل المستندات.</div>
+    <div class="q-divider"></div>
+    <div class="tf-wrap" id="tf6">
+      <button class="tf-btn tf-t" onclick="tf(this,'tf6',true)">✅ صحيح</button>
+      <button class="tf-btn tf-f" onclick="tf(this,'tf6',false)">❌ خطأ</button>
+    </div>
+    <div class="q-feedback ok" id="tf6-ok" style="margin: 0 20px 14px;">✅ صحيح! المحرر يملك كامل الصلاحيات: تعديل + إضافة + حذف + مشاركة.</div>
+    <div class="q-feedback bad" id="tf6-bad" style="margin: 0 20px 14px;">❌ العبارة صحيحة (✓) — المُحرِّر (Editor) يملك أعلى صلاحية بعد المالك.</div>
+  </div>
+
+  <!-- TF 7 — الرابط والصلاحيات -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-teal">صح أم خطأ</div>
+      <div class="q-label">السؤال ٧ من السؤال الثاني</div>
+    </div>
+    <div class="q-text">عند إنشاء رابط (Link) للمشاركة، لا يمكنك تحديد أو تقييد الصلاحيات للمستخدمين الذين سيرسل إليهم الرابط.</div>
+    <div class="q-divider"></div>
+    <div class="tf-wrap" id="tf7">
+      <button class="tf-btn tf-t" onclick="tf(this,'tf7',false)">✅ صحيح</button>
+      <button class="tf-btn tf-f" onclick="tf(this,'tf7',true)">❌ خطأ</button>
+    </div>
+    <div class="q-feedback ok" id="tf7-ok" style="margin: 0 20px 14px;">✅ صحيح أن العبارة خاطئة! يمكنك تحديد الصلاحيات للرابط (مشاهد، معلق، محرر) بحرية تامة.</div>
+    <div class="q-feedback bad" id="tf7-bad" style="margin: 0 20px 14px;">❌ العبارة خاطئة (✗) — بالعكس، يمكنك تحديد وتقييد الصلاحيات عند إنشاء رابط المشاركة.</div>
+  </div>
+
+  <!-- MATCH Q4 — الصلاحيات -->
+  <div class="q-card">
+    <div class="q-card-top">
+      <div class="q-badge c-teal">صل بين العمودين</div>
+      <div class="q-label">السؤال الرابع كاملاً — ٥ درجات</div>
+    </div>
+    <div class="q-text">صل بين العمود (أ) والعمود (ب):</div>
+    <div class="q-divider"></div>
+    <div class="match-wrap">
+      <div class="match-cols">
+        <div class="match-col" id="m4a">
+          <div class="match-item match-a" data-id="c1" data-correct="d5" onclick="selectA(this,'m4a','m4b')">١. المُشاهِد (Viewer)</div>
+          <div class="match-item match-a" data-id="c2" data-correct="d1" onclick="selectA(this,'m4a','m4b')">٢. المُحرِّر (Editor)</div>
+          <div class="match-item match-a" data-id="c3" data-correct="d3" onclick="selectA(this,'m4a','m4b')">٣. المُعلِّق (Commenter)</div>
+          <div class="match-item match-a" data-id="c4" data-correct="d4" onclick="selectA(this,'m4a','m4b')">٤. ملفاتي (My Drive)</div>
+          <div class="match-item match-a" data-id="c5" data-correct="d2" onclick="selectA(this,'m4a','m4b')">٥. تمت مشاركتها معي</div>
+        </div>
+        <div class="match-col" id="m4b">
+          <div class="match-item match-b" data-id="d1" onclick="selectB(this,'m4a','m4b','m4')">يمكنه تعديل الملفات وحذفها ومشاركتها</div>
+          <div class="match-item match-b" data-id="d2" onclick="selectB(this,'m4a','m4b','m4')">قسم يحتوي على ملفات أرسلها مستخدمون آخرون</div>
+          <div class="match-item match-b" data-id="d3" onclick="selectB(this,'m4a','m4b','m4')">يمكنه عرض الملف وإبداء الملاحظات فقط</div>
+          <div class="match-item match-b" data-id="d4" onclick="selectB(this,'m4a','m4b','m4')">قسم يحتوي على الملفات التي يملكها المستخدم</div>
+          <div class="match-item match-b" data-id="d5" onclick="selectB(this,'m4a','m4b','m4')">يمكنه عرض الملف فقط دون تعديل</div>
+        </div>
+      </div>
+      <div class="match-hint">💡 اضغط على عنصر من العمود الأيمن ثم اضغط على الإجابة المقابلة</div>
+      <div class="match-feedback" id="m4-fb"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FINAL
+════════════════════════════════════════ -->
+<div class="final" id="finalBox">
+  <div class="final-title">🏆 أنهيت المراجعة كاملة!</div>
+  <p class="final-desc">راجعت جميع دروس الوحدة وأجبت على أسئلة الاختبار الفعلية. أنت جاهز!</p>
+  <div class="final-score-box">
+    <span class="final-big" id="finalNum">٠</span>
+    <div class="final-lbl">من أصل <span id="totalQ">٠</span> سؤالاً أجبت عليه</div>
+  </div>
+  <div class="final-msg" id="finalMsg"></div>
+  <button class="restart-btn" onclick="restart()">🔄 إعادة المراجعة</button>
+</div>
+
+</main>
+
+<!-- SCORE BAR -->
+<div class="score-bar" id="scoreBar">
+  <span>✅ الإجابات الصحيحة</span>
+  <span class="snum" id="snum">٠</span>
+  <span class="sdiv">/</span>
+  <span id="stotal">٠</span>
+</div>
+
+<script>
+// ─── State ───
+let score = 0;
+let answered = 0;
+let matchSelected = {}; // colId -> selected A element
+
+const ar = n => String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+
+function updateBar() {
+  document.getElementById('snum').textContent = ar(score);
+  document.getElementById('stotal').textContent = ar(answered);
+  document.getElementById('finalNum').textContent = ar(score);
+  document.getElementById('totalQ').textContent = ar(answered);
+  const msg = document.getElementById('finalMsg');
+  const pct = answered > 0 ? score / answered : 0;
+  if (pct >= 0.85) msg.textContent = '🌟 ممتاز! أداء رائع — أنت مستعد للاختبار';
+  else if (pct >= 0.65) msg.textContent = '👍 جيد! راجع الأسئلة التي أخطأت فيها';
+  else msg.textContent = '💪 راجع الشرح مرة أخرى وأعد المحاولة';
+}
+
+// ─── MCQ ───
+function mcq(btn, qId, isCorrect) {
+  const container = document.getElementById(qId);
+  if (container.dataset.done) return;
+  container.dataset.done = '1';
+  answered++;
+  container.querySelectorAll('.mcq-opt').forEach(b => { b.classList.add('disabled'); b.onclick = null; });
+  if (isCorrect) {
+    btn.classList.add('correct');
+    document.getElementById(qId+'-ok').classList.add('show');
+    score++;
+  } else {
+    btn.classList.add('wrong');
+    container.querySelectorAll('.mcq-opt').forEach(b => {
+      if (b._isCorrect) b.classList.add('correct');
+    });
+    document.getElementById(qId+'-bad').classList.add('show');
+  }
+  // mark correct button for restart
+  btn.setAttribute('data-was', isCorrect ? 'chosen-correct' : 'chosen-wrong');
+  updateBar();
+}
+// tag correct buttons at load
+document.querySelectorAll('.mcq-opts').forEach(container => {
+  container.querySelectorAll('.mcq-opt').forEach(btn => {
+    const oc = btn.getAttribute('onclick') || '';
+    btn._isCorrect = oc.includes(',true)');
+  });
+});
+
+// ─── True/False ───
+function tf(btn, tfId, isCorrect) {
+  const container = document.getElementById(tfId);
+  if (container.dataset.done) return;
+  container.dataset.done = '1';
+  answered++;
+  container.querySelectorAll('.tf-btn').forEach(b => { b.classList.add('disabled'); b.onclick = null; });
+  if (isCorrect) {
+    btn.classList.add('sel-ok');
+    document.getElementById(tfId+'-ok').classList.add('show');
+    score++;
+  } else {
+    btn.classList.add('sel-bad');
+    document.getElementById(tfId+'-bad').classList.add('show');
+  }
+  updateBar();
+}
+
+// ─── MATCH ───
+function selectA(el, aColId, bColId) {
+  // clear previous A selection in this column
+  document.querySelectorAll('#'+aColId+' .match-a').forEach(e => {
+    if (!e.classList.contains('matched')) e.classList.remove('active');
+  });
+  el.classList.add('active');
+  matchSelected[aColId] = el;
+  // highlight B items
+  document.querySelectorAll('#'+bColId+' .match-b').forEach(e => {
+    if (!e.classList.contains('matched')) e.classList.remove('highlight');
+  });
+}
+
+function selectB(el, aColId, bColId, matchKey) {
+  const selA = matchSelected[aColId];
+  if (!selA || selA.classList.contains('matched')) return;
+  if (el.classList.contains('matched')) return;
+
+  const correctBId = selA.getAttribute('data-correct');
+  const chosenBId  = el.getAttribute('data-id');
+  const isCorrect  = correctBId === chosenBId;
+
+  const fb = document.getElementById(matchKey+'-fb');
+
+  if (isCorrect) {
+    selA.classList.remove('active');
+    selA.classList.add('matched');
+    selA.onclick = null;
+    el.classList.add('matched');
+    el.onclick = null;
+    score++;
+    answered++;
+    updateBar();
+    // Check if all matched
+    const aItems = document.querySelectorAll('#'+aColId+' .match-a');
+    const allDone = [...aItems].every(e => e.classList.contains('matched'));
+    if (allDone && fb) {
+      fb.className = 'match-feedback ok show';
+      fb.innerHTML = '✅ ممتاز! ربطت جميع الأزواج بشكل صحيح.';
+    }
+  } else {
+    selA.classList.remove('active');
+    selA.classList.add('wrong-match');
+    el.classList.add('wrong-match');
+    answered++;
+    updateBar();
+    if (fb) {
+      fb.className = 'match-feedback bad show';
+      fb.innerHTML = `❌ ربط غير صحيح. الإجابة الصحيحة لـ "<strong>${selA.textContent.trim()}</strong>" هي الخيار الآخر — تحقق من الجدول أعلاه.`;
+    }
+    setTimeout(() => {
+      selA.classList.remove('wrong-match');
+      el.classList.remove('wrong-match', 'highlight');
+      if (fb) fb.className = 'match-feedback';
+    }, 2200);
+  }
+  matchSelected[aColId] = null;
+}
+
+// ─── Open Q ───
+function showModel(textareaId, modelId) {
+  document.getElementById(modelId).classList.add('show');
+}
+
+// ─── Scroll Animation ───
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.lesson').forEach(l => obs.observe(l));
+
+// ─── Restart ───
+function restart() {
+  score = 0; answered = 0;
+  updateBar();
+
+  // MCQ
+  document.querySelectorAll('.mcq-opts').forEach(c => {
+    delete c.dataset.done;
+    c.querySelectorAll('.mcq-opt').forEach(b => {
+      b.classList.remove('correct','wrong','disabled');
+    });
+  });
+  // Re-bind MCQ (simplest: reload)
+  // TF
+  document.querySelectorAll('.tf-wrap').forEach(c => {
+    delete c.dataset.done;
+    c.querySelectorAll('.tf-btn').forEach(b => b.classList.remove('sel-ok','sel-bad','disabled'));
+  });
+  // Match
+  document.querySelectorAll('.match-item').forEach(el => {
+    el.classList.remove('matched','active','wrong-match','highlight');
+  });
+  document.querySelectorAll('.match-feedback').forEach(el => el.className = 'match-feedback');
+  matchSelected = {};
+  // Feedback
+  document.querySelectorAll('.q-feedback').forEach(el => el.classList.remove('show'));
+  // Model answers
+  document.querySelectorAll('.model-answer').forEach(el => el.classList.remove('show'));
+  // Textareas
+  document.querySelectorAll('.open-textarea').forEach(el => el.value = '');
+
+  // Re-bind MCQ clicks (reload page is simplest but let's rebind)
+  rebindMCQ();
+  rebindTF();
+  rebindMatch();
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function rebindMCQ() {
+  const defs = [
+    ['q1', [false,true,false,false]],
+    ['q2', [false,true,false,false]],
+    ['q3', [false,true,false,false]],
+    ['q4', [false,false,true,false]],
+    ['q5', [false,true,false,false]],
+    ['q6', [false,true,false,false]],
+  ];
+  defs.forEach(([id, corrects]) => {
+    const btns = document.querySelectorAll('#'+id+' .mcq-opt');
+    btns.forEach((b,i) => {
+      b.onclick = () => mcq(b, id, corrects[i]);
+      b._isCorrect = corrects[i];
+    });
+  });
+}
+
+function rebindTF() {
+  const defs = [
+    ['tf1', [true,false]], ['tf2',[true,false]], ['tf3',[true,false]],
+    ['tf4',[false,true]], ['tf5',[false,true]], ['tf6',[true,false]],
+    ['tf7',[false,true]], ['tf8',[true,false]],
+  ];
+  defs.forEach(([id, corrects]) => {
+    const btns = document.querySelectorAll('#'+id+' .tf-btn');
+    btns.forEach((b,i) => { b.onclick = () => tf(b, id, corrects[i]); });
+  });
+}
+
+function rebindMatch() {
+  document.querySelectorAll('.match-a').forEach(el => {
+    const aColId = el.closest('[id$="a"]').id;
+    const bColId = aColId.slice(0,-1)+'b';
+    el.onclick = () => selectA(el, aColId, bColId);
+  });
+  document.querySelectorAll('.match-b').forEach(el => {
+    const bColId = el.closest('[id$="b"]').id;
+    const aColId = bColId.slice(0,-1)+'a';
+    const matchKey = bColId.slice(0,-1).replace(/^m/,'m');
+    el.onclick = () => selectB(el, aColId, bColId, matchKey);
+  });
+}
+</script>
+</body>
+</html>
